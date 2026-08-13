@@ -1,0 +1,33 @@
+name: Self Hosted Runner Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: self-hosted
+
+    steps:
+      - name: Runner Information
+        run: |
+          echo "===== Runner Test ====="
+
+          echo "User:"
+          whoami
+
+          echo "Hostname:"
+          hostname
+
+          echo "OS:"
+          cat /etc/os-release | head
+
+          echo "Working Directory:"
+          pwd
+
+          echo "Git:"
+          git --version
+
+          echo "Curl:"
+          curl --version | head -n 1
+
+          echo "======================="
